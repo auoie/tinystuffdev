@@ -2,14 +2,21 @@ import { readFileSync } from "fs";
 import matter from "gray-matter";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { join } from "path";
-import { cwd } from "process";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
+import {
+  INDEX_MD_PATH,
+  NOTES_PATH,
+  NOTE_FILE_PATHS,
+  parseMetadata,
+  renderDate,
+} from "../utils/mdxUtils";
+import { join } from "path";
+import Link from "next/link";
+import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
 
 const getHomeProps = async () => {
-  const postFilePath = join(cwd(), "..", "content", "index.md");
-  const source = readFileSync(postFilePath);
+  const source = readFileSync(INDEX_MD_PATH);
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
@@ -18,29 +25,60 @@ const getHomeProps = async () => {
     },
     scope: data,
   });
+
+  const posts = NOTE_FILE_PATHS.map((filePath) => {
+    const source = readFileSync(join(NOTES_PATH, filePath));
+    const { data } = matter(source);
+    const metadata = parseMetadata.parse(data);
+    const renderedDate = renderDate(new Date(metadata.created));
+    return { data: { ...metadata, created: renderedDate }, filePath };
+  });
   return {
     props: {
       source: mdxSource,
+      posts,
     },
   };
 };
-type ResolveHomeProps<T extends () => Promise<{ props: any }>> =
-  T extends () => Promise<{ props: infer U }> ? U : never;
-type HomeProps = ResolveHomeProps<typeof getHomeProps>;
+
+type HomeProps = ResolveStaticPropsReturnType<typeof getHomeProps>;
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return await getHomeProps();
 };
 
-const Home: NextPage<HomeProps> = ({ source }) => {
+const Home: NextPage<HomeProps> = ({ source, posts }) => {
   return (
-    <div>
+    <div className="mx-4 my-12">
       <Head>
         <title>tinystuff</title>
       </Head>
-      <h1 className="text-3xl font-bold underline">Hello world</h1>
-      <main>
+      <div className="mx-auto max-w-[46rem] prose prose-blue dark:prose-invert">
+        <div className="font-mono text-xl">
+          <Link href="/">
+            <a className="no-underline">$HOME</a>
+          </Link>
+          {" / "}
+        </div>
         <MDXRemote {...source}></MDXRemote>
-      </main>
+        <h2>Notes</h2>
+        {posts.map((post) => (
+          <div
+            key={post.filePath}
+            className="md:flex md:flex-row-reverse md:items-baseline md:justify-between"
+          >
+            <div className="text-sm whitespace-nowrap opacity-80">
+              {post.data.created}
+            </div>
+            <Link
+              as={`/${post.filePath.replace(/\.mdx?$/, "")}`}
+              href={"/[slug]"}
+              prefetch={false}
+            >
+              <a>{post.data.title}</a>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
