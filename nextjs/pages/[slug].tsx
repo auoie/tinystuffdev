@@ -59,7 +59,7 @@ const PostPage: NextPage<PostPageProps> = ({ frontMatter, source, slug }) => {
       <div className="mx-auto max-w-[46rem] prose prose-blue dark:prose-invert break-words ">
         <div className="font-mono text-xl">
           <Link href="/">
-            <a className="no-underline">$HOME</a>
+            <a className="no-underline">~</a>
           </Link>
           {" / "}
           <Link href={`/${slug}`}>

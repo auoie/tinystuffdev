@@ -48,7 +48,7 @@ Icon=742F_BakkesMod.0
 ```
 
 BakkesMod reports that [vc_redist.x64.exe is missing](https://github.com/bakkesmodorg/BakkesMod2-Plugins/issues/2).
-The comments in the linked issue appear to shows ways to remove this warning message.
+The comments in the linked issue appear to show ways to remove this warning message.
 It still works so I'm just going to ignore this warning.
 
 I tried to install the [Rocket League Tracker App](https://rocketleague.tracker.network/rocket-league/app). I tried two different commands. I kept getting an error with the Overwolf installer.

@@ -55,7 +55,7 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
       <div className="mx-auto max-w-[46rem] prose prose-blue dark:prose-invert">
         <div className="font-mono text-xl">
           <Link href="/">
-            <a className="no-underline">$HOME</a>
+            <a className="no-underline">~</a>
           </Link>
           {" / "}
         </div>
