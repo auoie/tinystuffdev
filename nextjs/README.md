@@ -52,6 +52,21 @@ To adjust it, I had to clone the repository and do `adjustShade(lastShade.hexCod
 rather than `adjustShade(lastShade.hexCode, -20)`.
 Then I could run the UI with `npm install && npm run serve`.
 
+## Favicon
+
+I'm just using apples icons for the favicon.
+
+- To convert an image to a favicon, see [here](https://superuser.com/questions/227736/how-do-i-convert-a-png-into-a-ico).
+- To get multiple resolutions in one, see [here](https://askubuntu.com/questions/867567/convert-jpg-or-png-to-ico-using-terminal-and-back)
+- According to [this link](https://stackoverflow.com/questions/9943771/adding-a-favicon-to-a-static-html-page),
+  you shouldn't use `shortcut icon` anymore.
+
+```bash
+convert full-moon-face_1f31d.png -scale 32 moon.ico
+convert sun-with-face_1f31e.png -scale 32 sun.ico
+convert face-with-monocle_1f9d0.png -define icon:auto-resize=256,64,48,32,16 favicon.ico # I used this one
+```
+
 ## Todo
 
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).
