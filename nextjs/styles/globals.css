@@ -2,6 +2,7 @@
 @tailwind components;
 :root {
   color-scheme: dark light;
+  overflow-y: scroll;
 }
 pre[class*="language-"] {
   @apply rounded-none md:rounded-md !important;
