@@ -3,6 +3,18 @@ title: Rocket League on Arch Linux with Steam
 created: Wed May 25 02:07:32 PM UTC 2022
 ---
 
+## Update (Sat Jun 11 10:04:13 PM UTC 2022)
+
+BakkesMod isn't working anymore. When I run `WINEESYNC=1 protontricks -c 'wine c:/Program\ Files/BakkesMod/BakkesMod.exe' 252950`,
+I get the error
+
+```text
+/home/arch/.cache/protontricks/proton/Proton-GE/bin/wine: line 155: /home/arch/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier/pressure-vessel/bin/pressure-vessel-launch: No such file or directory
+```
+
+Rocket League recently added voice chat.
+It doesn't work for me.
+
 ## Installing Rocket League
 
 I would like to play online Rocket League.
