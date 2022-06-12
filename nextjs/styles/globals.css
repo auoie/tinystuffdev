@@ -6,7 +6,7 @@
 }
 pre[class*="language-"] {
   @apply rounded-none !important;
-  @apply bg-zinc-200 dark:bg-black !important;
+  @apply bg-zinc-100 dark:bg-black !important;
   @apply border-none;
   padding: 1rem !important;
   margin: 0.5em -1rem !important;
