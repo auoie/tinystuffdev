@@ -19,6 +19,7 @@ npm install zod
 npm install next-themes
 npm install clsx
 npm install remark-gfm
+npm install rehype-external-links
 ```
 
 ## Syntax Highlighting

@@ -15,6 +15,7 @@ import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
 import remarkPrism from "remark-prism";
 import remarkGfm from 'remark-gfm'
 import Header from "../components/Header";
+import rehypeExternalLinks from 'rehype-external-links'
 
 const getPostPageProps = async (slug: string) => {
   const postFilePath = join(NOTES_PATH, `${slug}.md`);
@@ -23,7 +24,7 @@ const getPostPageProps = async (slug: string) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkGfm, remarkPrism],
-      rehypePlugins: [],
+      rehypePlugins: [rehypeExternalLinks],
     },
     scope: data,
   });

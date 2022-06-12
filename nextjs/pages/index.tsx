@@ -15,6 +15,7 @@ import { join } from "path";
 import Link from "next/link";
 import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
 import Header from "../components/Header";
+import rehypeExternalLinks from 'rehype-external-links'
 
 const getHomeProps = async () => {
   const source = readFileSync(INDEX_MD_PATH);
@@ -22,7 +23,7 @@ const getHomeProps = async () => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [rehypeExternalLinks],
     },
     scope: data,
   });
