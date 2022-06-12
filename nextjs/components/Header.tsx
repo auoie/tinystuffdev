@@ -26,7 +26,7 @@ const Header: FC<Props> = ({ className, ...props }) => {
           >
             <div
               className={clsx(
-                "h-7 w-7 transition",
+                "h-8 w-8 transition",
                 "dark:text-black dark:bg-white dark:hover:bg-black dark:hover:text-white",
                 "text-white bg-black hover:bg-white hover:text-black",
                 "hover:bg-gradient-to-br hover:from-solid-mint hover:to-solid-acai"
