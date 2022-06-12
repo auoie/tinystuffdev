@@ -17,7 +17,7 @@ const Header: FC<Props> = ({ className, ...props }) => {
         <Link href="/">
           <a
             className={clsx(
-              "no-underline p-0.5",
+              "no-underline",
               "focus:ring-4 focus:ring-solid-lavender"
             )}
             onClick={(event) => {
