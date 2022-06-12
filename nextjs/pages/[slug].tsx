@@ -13,6 +13,7 @@ import {
 } from "../utils/mdxUtils";
 import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
 import remarkPrism from "remark-prism";
+import remarkGfm from 'remark-gfm'
 import Header from "../components/Header";
 
 const getPostPageProps = async (slug: string) => {
@@ -21,7 +22,7 @@ const getPostPageProps = async (slug: string) => {
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkPrism],
+      remarkPlugins: [remarkGfm, remarkPrism],
       rehypePlugins: [],
     },
     scope: data,

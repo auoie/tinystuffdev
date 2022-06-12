@@ -3,7 +3,7 @@
 - https://github.com/vercel/next.js/tree/canary/examples/with-mdx-remote. Adding markdown parsing.
 - https://github.com/leerob/nextjs-prism-markdown. https://stackoverflow.com/questions/62685856/use-prismjs-in-next-js-with-remark-to-hightlight-code-from-markdown. Adding syntax highlighting.
 - https://mxd.codes/articles/syntax-highlighting-with-prism-and-next-js. Using Prism JS.
-- Some example blogs are https://blog.jim-nielsen.com/ and https://leerob.io/
+- Some example blogs are https://blog.jim-nielsen.com/, https://leerob.io/, and https://www.seanmcp.com/.
 
 ```bash
 npx create-next-app@latest --ts nextjs
@@ -18,6 +18,7 @@ npm install @types/remark-prism
 npm install zod
 npm install next-themes
 npm install clsx
+npm install remark-gfm
 ```
 
 ## Syntax Highlighting

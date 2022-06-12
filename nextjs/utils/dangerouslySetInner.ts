@@ -23,7 +23,6 @@ try {
       color = "light";
     }
     link.href = themeToStyle[color];
-    console.log("updating");
   };
   document.head.appendChild(link);
   const mutationObserver = new MutationObserver(() => {

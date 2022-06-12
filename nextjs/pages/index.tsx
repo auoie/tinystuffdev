@@ -60,8 +60,8 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
           <h2>Notes</h2>
           {posts.map((post) => (
             <div
+              className="mt-4 sm:flex sm:flex-row-reverse sm:items-baseline sm:justify-between"
               key={post.filePath}
-              className="sm:flex sm:flex-row-reverse sm:items-baseline sm:justify-between"
             >
               <div className="text-sm whitespace-nowrap opacity-80">
                 {post.data.created}
