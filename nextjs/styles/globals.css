@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 :root {
-  color-scheme: dark light;
   overflow-y: scroll;
 }
 pre[class*="language-"] {
