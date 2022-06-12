@@ -14,6 +14,7 @@ import {
 import { join } from "path";
 import Link from "next/link";
 import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
+import Header from "../components/Header";
 
 const getHomeProps = async () => {
   const source = readFileSync(INDEX_MD_PATH);
@@ -52,32 +53,29 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
       <Head>
         <title>tinystuff</title>
       </Head>
-      <div className="mx-auto max-w-[46rem] prose prose-blue dark:prose-invert">
-        <div className="font-mono text-xl">
-          <Link href="/">
-            <a className="no-underline">~</a>
-          </Link>
-          {" / "}
-        </div>
-        <MDXRemote {...source}></MDXRemote>
-        <h2>Notes</h2>
-        {posts.map((post) => (
-          <div
-            key={post.filePath}
-            className="md:flex md:flex-row-reverse md:items-baseline md:justify-between"
-          >
-            <div className="text-sm whitespace-nowrap opacity-80">
-              {post.data.created}
-            </div>
-            <Link
-              as={`/${post.filePath.replace(/\.mdx?$/, "")}`}
-              href={"/[slug]"}
-              prefetch={false}
+      <div className="mx-auto max-w-[38rem]">
+        <Header className="mb-10" />
+        <div className="max-w-full prose-sm prose prose-blue dark:prose-invert">
+          <MDXRemote {...source}></MDXRemote>
+          <h2>Notes</h2>
+          {posts.map((post) => (
+            <div
+              key={post.filePath}
+              className="sm:flex sm:flex-row-reverse sm:items-baseline sm:justify-between"
             >
-              <a>{post.data.title}</a>
-            </Link>
-          </div>
-        ))}
+              <div className="text-sm whitespace-nowrap opacity-80">
+                {post.data.created}
+              </div>
+              <Link
+                as={`/${post.filePath.replace(/\.mdx?$/, "")}`}
+                href={"/[slug]"}
+                prefetch={false}
+              >
+                <a>{post.data.title}</a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

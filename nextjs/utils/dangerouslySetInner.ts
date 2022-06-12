@@ -5,7 +5,6 @@ try {
   } as const;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   document.head.append(
     ...Object.values(themeToStyle).map((hrefLink) => {
       const cacheLink = document.createElement("link");
@@ -15,8 +14,8 @@ try {
       return cacheLink;
     })
   );
-  const update = () => {
-    const prefersDark = mediaQuery.matches;
+  const systemThemeUpdate = () => {
+    const prefersDark = document.documentElement.className === "dark";
     let color: null | keyof typeof themeToStyle = null;
     if (prefersDark) {
       color = "dark";
@@ -24,9 +23,12 @@ try {
       color = "light";
     }
     link.href = themeToStyle[color];
+    console.log("updating");
   };
-  update();
-  mediaQuery.addEventListener("change", update);
   document.head.appendChild(link);
+  const mutationObserver = new MutationObserver(() => {
+    systemThemeUpdate()
+  });
+  mutationObserver.observe(document.documentElement, { attributes: true });
 } catch (_) {}
 export {};

@@ -13,7 +13,7 @@ import {
 } from "../utils/mdxUtils";
 import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
 import remarkPrism from "remark-prism";
-import Link from "next/link";
+import Header from "../components/Header";
 
 const getPostPageProps = async (slug: string) => {
   const postFilePath = join(NOTES_PATH, `${slug}.md`);
@@ -32,7 +32,6 @@ const getPostPageProps = async (slug: string) => {
     props: {
       source: mdxSource,
       frontMatter: { ...metadata, created: renderedDate },
-      slug,
     },
   };
 };
@@ -49,26 +48,22 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   }
   return await getPostPageProps(`${slug}`);
 };
-const PostPage: NextPage<PostPageProps> = ({ frontMatter, source, slug }) => {
+const PostPage: NextPage<PostPageProps> = ({ frontMatter, source }) => {
   const { title, created } = frontMatter;
   return (
     <div className="mx-4 my-12">
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="mx-auto max-w-[46rem] prose prose-blue dark:prose-invert break-words ">
-        <div className="font-mono text-xl">
-          <Link href="/">
-            <a className="no-underline">~</a>
-          </Link>
-          {" / "}
-          <Link href={`/${slug}`}>
-            <a className="no-underline">{slug}</a>
-          </Link>
+      <div className="mx-auto max-w-[38rem] ">
+        <Header />
+        <div className="max-w-full prose-sm prose break-words prose-blue dark:prose-invert">
+          <div className="my-10">
+            <h1 className="my-2">{title}</h1>
+            <div className="opacity-80">{created}</div>
+          </div>
+          <MDXRemote {...source}></MDXRemote>
         </div>
-        <h1 className="my-4">{title}</h1>
-        <div className="opacity-80">{created}</div>
-        <MDXRemote {...source}></MDXRemote>
       </div>
     </div>
   );

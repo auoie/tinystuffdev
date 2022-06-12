@@ -16,6 +16,8 @@ npm install -D @tailwindcss/typography
 npm install remark-prism
 npm install @types/remark-prism
 npm install zod
+npm install next-themes
+npm install clsx
 ```
 
 ## Syntax Highlighting
@@ -66,6 +68,12 @@ convert full-moon-face_1f31d.png -scale 32 moon.ico
 convert sun-with-face_1f31e.png -scale 32 sun.ico
 convert face-with-monocle_1f9d0.png -define icon:auto-resize=256,64,48,32,16 favicon.ico # I used this one
 ```
+## Max Width
+The max with is set to `46rem` which is `2rem` less than `md:` size of `48rem`.
+This is so that the corners for the code blocks are removed when the window is smaller than `48rem`.
+## Add Event Listener to Class Change
+
+- https://www.seanmcp.com/articles/event-listener-for-class-change/
 
 ## Todo
 
