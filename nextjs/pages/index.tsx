@@ -13,17 +13,22 @@ import {
 } from "../utils/mdxUtils";
 import { join } from "path";
 import Link from "next/link";
-import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
+import {
+  GetRehypePluginOptions,
+  ResolveStaticPropsReturnType,
+} from "../utils/typeUtils";
 import Header from "../components/Header";
-import rehypeExternalLinks from 'rehype-external-links'
+import rehypeExternalLinks from "rehype-external-links";
 
+const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
+  { rel: false };
 const getHomeProps = async () => {
   const source = readFileSync(INDEX_MD_PATH);
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [rehypeExternalLinks],
+      rehypePlugins: [[rehypeExternalLinks, externalLinksOptions]],
     },
     scope: data,
   });

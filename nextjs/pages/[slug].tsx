@@ -11,12 +11,17 @@ import {
   parseMetadata,
   renderDate,
 } from "../utils/mdxUtils";
-import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
+import {
+  GetRehypePluginOptions,
+  ResolveStaticPropsReturnType,
+} from "../utils/typeUtils";
 import remarkPrism from "remark-prism";
-import remarkGfm from 'remark-gfm'
+import remarkGfm from "remark-gfm";
 import Header from "../components/Header";
-import rehypeExternalLinks from 'rehype-external-links'
+import rehypeExternalLinks from "rehype-external-links";
 
+const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
+  { rel: false };
 const getPostPageProps = async (slug: string) => {
   const postFilePath = join(NOTES_PATH, `${slug}.md`);
   const source = readFileSync(postFilePath);
@@ -24,7 +29,7 @@ const getPostPageProps = async (slug: string) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkGfm, remarkPrism],
-      rehypePlugins: [rehypeExternalLinks],
+      rehypePlugins: [[rehypeExternalLinks, externalLinksOptions]],
     },
     scope: data,
   });
