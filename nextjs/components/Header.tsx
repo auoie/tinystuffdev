@@ -18,7 +18,7 @@ const Header: FC<Props> = ({ className, ...props }) => {
           <a
             className={clsx(
               "no-underline",
-              "focus:ring-4 focus:ring-solid-lavender"
+              "focus:ring-4 focus:ring-solid-lavender border-none focus:outline-none"
             )}
             onClick={(event) => {
               event.currentTarget.blur();
