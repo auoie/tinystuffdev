@@ -3,7 +3,7 @@
 - https://github.com/vercel/next.js/tree/canary/examples/with-mdx-remote. Adding markdown parsing.
 - https://github.com/leerob/nextjs-prism-markdown. https://stackoverflow.com/questions/62685856/use-prismjs-in-next-js-with-remark-to-hightlight-code-from-markdown. Adding syntax highlighting.
 - https://mxd.codes/articles/syntax-highlighting-with-prism-and-next-js. Using Prism JS.
-- Some example blogs are https://blog.jim-nielsen.com/, https://leerob.io/, and https://www.seanmcp.com/.
+- Some example blogs are https://blog.jim-nielsen.com/, https://leerob.io/, and https://www.seanmcp.com/. For an example of a personal website with good accessibility, see https://seirdy.one/.
 
 ```bash
 npx create-next-app@latest --ts nextjs
@@ -71,6 +71,11 @@ convert sun-with-face_1f31e.png -scale 32 sun.ico
 convert face-with-monocle_1f9d0.png -define icon:auto-resize=256,64,48,32,16 favicon.ico # I used this one
 ```
 
+## Custom Favicon
+
+To make my own gradient favicon, I created a temporary Next.js project in `create-favicon/` and then
+used the package [html2canvas](https://github.com/niklasvh/html2canvas).
+
 ## Max Width
 
 The max with is set to `46rem` which is `2rem` less than `md:` size of `48rem`.
@@ -90,5 +95,4 @@ Then you extend the `fontFamily` property in `tailwind.config.js`.
 
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).
       Also, add a VSC Light+ Prism JS theme.
-- [ ] Add continuous deployment with `rsync`.
-- [ ] Make links responsive
+- [ ] Add meta tags with `next-seo`.

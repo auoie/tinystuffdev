@@ -18,6 +18,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="icon" href="favicon.ico" type="image/x-icon" />
           {
+            // Using this so that if JavaScript is disabled, code still has the correct colors
             // eslint-disable-next-line @next/next/no-css-tags
           }<link rel="stylesheet" href="/prism-vs.css" />
           <script
