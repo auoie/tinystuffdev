@@ -68,7 +68,7 @@ const PostPage: NextPage<PostPageProps> = ({
     <div className="mx-4 my-12">
       <NextSeo
         title={title}
-        canonical={`https://tinystuff.dev/${slug}`}
+        canonical={`https://tinystuff.dev/${slug}/`}
         description={description}
         openGraph={{
           url: "https://tinystuff.dev/",
