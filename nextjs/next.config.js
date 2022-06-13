@@ -6,7 +6,8 @@ const nextConfig = {
 
 const withImages = require("next-images");
 module.exports = withImages({
-  nextConfig,
+  reactStrictMode: true,
+  trailingSlash: true,
   images: {
     disableStaticImages: true,
   }
