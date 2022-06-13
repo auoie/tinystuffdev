@@ -3,7 +3,6 @@ import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
 import { join } from "path";
 import {
   NOTES_PATH,
@@ -19,6 +18,7 @@ import remarkPrism from "remark-prism";
 import remarkGfm from "remark-gfm";
 import Header from "../components/Header";
 import rehypeExternalLinks from "rehype-external-links";
+import { NextSeo } from "next-seo";
 
 const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
   { rel: false };
@@ -38,7 +38,9 @@ const getPostPageProps = async (slug: string) => {
   return {
     props: {
       source: mdxSource,
+      description: metadata.description,
       frontMatter: { ...metadata, created: renderedDate },
+      slug,
     },
   };
 };
@@ -55,13 +57,35 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   }
   return await getPostPageProps(`${slug}`);
 };
-const PostPage: NextPage<PostPageProps> = ({ frontMatter, source }) => {
+const PostPage: NextPage<PostPageProps> = ({
+  frontMatter,
+  source,
+  slug,
+  description,
+}) => {
   const { title, created } = frontMatter;
   return (
     <div className="mx-4 my-12">
-      <Head>
-        <title>{title}</title>
-      </Head>
+      <NextSeo
+        title={title}
+        canonical={`https://tinystuff.dev/${slug}`}
+        description={description}
+        openGraph={{
+          url: "https://tinystuff.dev/",
+          title: title,
+          site_name: "tinystuff",
+          description: description,
+          images: [
+            {
+              url: "https://tinystuff.dev/favicon-448.png/",
+              width: 448,
+              height: 448,
+              alt: "Gradient from light blue to purple",
+              type: "image/png",
+            },
+          ],
+        }}
+      />
       <div className="mx-auto max-w-[38rem] ">
         <Header />
         <div className="max-w-full prose-sm prose break-words prose-blue dark:prose-invert">

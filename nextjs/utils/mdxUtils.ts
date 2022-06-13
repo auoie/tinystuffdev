@@ -11,6 +11,7 @@ export const NOTE_FILE_PATHS = readdirSync(NOTES_PATH).filter((path) =>
 export const parseMetadata = z.object({
   title: z.string(),
   created: z.string(),
+  description: z.string(),
 });
 export const renderDate = (date: Date) => {
   const month = (date.getUTCMonth() + 1).toString().padStart(2, "0");

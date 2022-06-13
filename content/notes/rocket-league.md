@@ -1,6 +1,7 @@
 ---
 title: Rocket League on Arch Linux with Steam
 created: Wed May 25 02:07:32 PM UTC 2022
+description: We try to run Rocket League on Arch Linux. It's probably not worth the effort.
 ---
 
 ## Update (Sat Jun 11 10:04:13 PM UTC 2022)

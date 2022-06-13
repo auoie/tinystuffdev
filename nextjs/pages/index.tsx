@@ -1,7 +1,6 @@
 import { readFileSync } from "fs";
 import matter from "gray-matter";
 import type { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import {
@@ -19,6 +18,7 @@ import {
 } from "../utils/typeUtils";
 import Header from "../components/Header";
 import rehypeExternalLinks from "rehype-external-links";
+import { NextSeo } from "next-seo";
 
 const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
   { rel: false };
@@ -56,9 +56,27 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 const Home: NextPage<HomeProps> = ({ source, posts }) => {
   return (
     <div className="mx-4 my-12">
-      <Head>
-        <title>tinystuff</title>
-      </Head>
+      <NextSeo
+        title="tinystuff"
+        description="These are some of my projects and notes. It's pretty empty right now."
+        canonical="https://tinystuff.dev/"
+        openGraph={{
+          url: "https://tinystuff.dev/",
+          title: "tinystuff",
+          site_name: "tinystuff",
+          description:
+            "These are some of my projects and notes. It's pretty empty right now.",
+          images: [
+            {
+              url: "https://tinystuff.dev/favicon-448.png/",
+              width: 448,
+              height: 448,
+              alt: "Gradient from light blue to purple",
+              type: "image/png",
+            },
+          ],
+        }}
+      />
       <div className="mx-auto max-w-[38rem]">
         <Header className="mb-10" />
         <div className="max-w-full prose-sm prose prose-blue dark:prose-invert">

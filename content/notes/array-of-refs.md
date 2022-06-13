@@ -1,6 +1,7 @@
 ---
 title: Array of Refs
 created: Sun Jun 12 03:02:01 AM UTC 2022
+description: We look at how to create an array of refs.
 ---
 
 If you want to create an array of refs, you can use the following:
