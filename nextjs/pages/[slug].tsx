@@ -71,7 +71,7 @@ const PostPage: NextPage<PostPageProps> = ({
         canonical={`https://tinystuff.dev/${slug}/`}
         description={description}
         openGraph={{
-          url: "https://tinystuff.dev/",
+          url: `https://tinystuff.dev/${slug}/`,
           title: title,
           site_name: "tinystuff",
           description: description,
