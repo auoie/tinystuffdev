@@ -9,14 +9,14 @@ import {
   NOTE_FILE_PATHS,
   parseMetadata,
   renderDate,
-} from "../utils/mdxUtils";
+} from "../../utils/mdxUtils";
 import {
   GetRehypePluginOptions,
   ResolveStaticPropsReturnType,
-} from "../utils/typeUtils";
+} from "../../utils/typeUtils";
 import remarkPrism from "remark-prism";
 import remarkGfm from "remark-gfm";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 import rehypeExternalLinks from "rehype-external-links";
 import { NextSeo } from "next-seo";
 

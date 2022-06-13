@@ -93,7 +93,7 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
               </div>
               <Link
                 as={`/${post.filePath.replace(/\.mdx?$/, "")}`}
-                href={"/[slug]"}
+                href={"/[slug]/"}
                 prefetch={false}
               >
                 <a>{post.data.title}</a>

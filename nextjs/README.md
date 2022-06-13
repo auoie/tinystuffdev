@@ -96,8 +96,14 @@ Then you extend the `fontFamily` property in `tailwind.config.js`.
 
 For search engine optimization, use [this package](https://github.com/garmeeh/next-seo).
 
+## Make Next.js Respect `[slug]/index.tsx` folder structure
+
+To do this, see [here](https://stackoverflow.com/questions/57157228/next-js-export-index-html).
+This makes it compatible with the Caddy server.
+
 ## Todo
 
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).
       Also, add a VSC Light+ Prism JS theme.
 - [ ] Add meta tags with `next-seo`.
+- [ ] Add ability to remove trailing slash in caddy server so that the opengraph metadata works
