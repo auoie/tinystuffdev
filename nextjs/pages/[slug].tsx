@@ -75,6 +75,7 @@ const PostPage: NextPage<PostPageProps> = ({
           title: title,
           site_name: "tinystuff",
           description: description,
+          type: "article",
           images: [
             {
               url: "https://tinystuff.dev/favicon-448.png/",
