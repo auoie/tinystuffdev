@@ -112,6 +112,7 @@ In order to add hashes to favicons, I had to use the `next-images` npm package.
 It did not work out of the box.
 [This issue](https://github.com/twopluszero/next-images/issues/83) had the solution to
 use the parameter `disableStaticImages: true` and to use `src={StaticImage}` rather than `src={StaticImage.src}`.
+Then in cloudflare, I can just set the Browser Cache TTL value to 1 year.
 
 ## Todo
 
