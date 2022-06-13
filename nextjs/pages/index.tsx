@@ -69,7 +69,7 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
             "These are some of my projects and notes. It's pretty empty right now.",
           images: [
             {
-              url: "https://tinystuff.dev/favicon-448.png/",
+              url: "https://tinystuff.dev/favicon-448.png",
               width: 448,
               height: 448,
               alt: "Gradient from light blue to purple",
