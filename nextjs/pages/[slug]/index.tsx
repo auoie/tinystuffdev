@@ -78,9 +78,9 @@ const PostPage: NextPage<PostPageProps> = ({
           type: "article",
           images: [
             {
-              url: "https://tinystuff.dev/favicon-448.png",
-              width: 448,
-              height: 448,
+              url: "https://tinystuff.dev/favicon-200.png",
+              width: 200,
+              height: 200,
               alt: "Gradient from light blue to purple",
               type: "image/png",
             },

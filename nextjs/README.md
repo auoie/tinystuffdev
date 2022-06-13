@@ -99,6 +99,7 @@ For search engine optimization, use [this package](https://github.com/garmeeh/ne
 ## Make Next.js Respect `[slug]/index.tsx` folder structure
 
 To do this, see [here](https://stackoverflow.com/questions/57157228/next-js-export-index-html).
+Basically, I had to add `trailingSlash: true` to my `next.config.js` file.
 This makes it compatible with the Caddy server.
 If I choose to use the `try_files {path}.html {path}` directive, then I will
 need to either figure out how to remove the trailing slash when there exists an .html file matching the path
