@@ -16,7 +16,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="favicon.ico" type="image/x-icon" />
           {
             // Using this so that if JavaScript is disabled, code still has the correct colors
             // eslint-disable-next-line @next/next/no-css-tags

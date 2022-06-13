@@ -21,6 +21,7 @@ npm install clsx
 npm install remark-gfm
 npm install rehype-external-links
 npm install next-seo
+npm install next-images
 ```
 
 ## Syntax Highlighting
@@ -105,9 +106,16 @@ If I choose to use the `try_files {path}.html {path}` directive, then I will
 need to either figure out how to remove the trailing slash when there exists an .html file matching the path
 with my Caddy server or I will need to update my Open Graph configuration to not use a trailing slash for my URLs.
 
+## Adding Hashes to Favicon
+
+In order to add hashes to favicons, I had to use the `next-images` npm package.
+It did not work out of the box.
+[This issue](https://github.com/twopluszero/next-images/issues/83) had the solution to
+use the parameter `disableStaticImages: true` and to use `src={StaticImage}` rather than `src={StaticImage.src}`.
+
 ## Todo
 
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).
-      Also, add a VSC Light+ Prism JS theme.
-- [ ] Add meta tags with `next-seo`.
-- [ ] Add ability to remove trailing slash in caddy server so that the opengraph metadata works
+      Also, add a VSC Light+ Prism JS theme. According to my Lighthouse score, my light mode code color scheme doesn't have enough contrast.
+      I should address this.
+- [ ] Add hashes to favicon icons so that I'll be more confident in setting a longer cache-control header which will make the lighthouse score happier.

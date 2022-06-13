@@ -73,18 +73,8 @@ const PostPage: NextPage<PostPageProps> = ({
         openGraph={{
           url: `https://tinystuff.dev/${slug}/`,
           title: title,
-          site_name: "tinystuff",
           description: description,
           type: "article",
-          images: [
-            {
-              url: "https://tinystuff.dev/favicon-200.png",
-              width: 200,
-              height: 200,
-              alt: "Gradient from light blue to purple",
-              type: "image/png",
-            },
-          ],
         }}
       />
       <div className="mx-auto max-w-[38rem] ">

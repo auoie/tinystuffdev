@@ -20,6 +20,7 @@ import Header from "../components/Header";
 import rehypeExternalLinks from "rehype-external-links";
 import { NextSeo } from "next-seo";
 
+
 const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
   { rel: false };
 const getHomeProps = async () => {
@@ -57,25 +58,15 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
   return (
     <div className="mx-4 my-12">
       <NextSeo
-        title="tinystuff"
+        title="Tiny Stuff"
         description="These are some of my projects and notes. It's pretty empty right now."
         canonical="https://tinystuff.dev/"
         openGraph={{
           url: "https://tinystuff.dev/",
           title: "tinystuff",
-          site_name: "tinystuff",
           type: "website",
           description:
             "These are some of my projects and notes. It's pretty empty right now.",
-          images: [
-            {
-              url: "https://tinystuff.dev/favicon-200.png",
-              width: 200,
-              height: 200,
-              alt: "Gradient from light blue to purple",
-              type: "image/png",
-            },
-          ],
         }}
       />
       <div className="mx-auto max-w-[38rem]">
