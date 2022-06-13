@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: "class",
   content: [
@@ -6,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        header: ["Fira Sans", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         zinc: {
           950: "#0e0e11",
@@ -37,7 +41,7 @@ module.exports = {
             a: {
               "text-decoration": "none",
               "&:hover": {
-                "text-decoration": "underline"
+                "text-decoration": "underline",
               },
             },
           },

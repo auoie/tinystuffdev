@@ -13,25 +13,24 @@ const Header: FC<Props> = ({ className, ...props }) => {
       className={clsx("flex items-center justify-between", className)}
       {...props}
     >
-      <div className="flex items-center font-mono text-lg">
+      <div className="flex items-center text-xl font-medium font-header">
         <Link href="/">
           <a
+            aria-label="Home"
             className={clsx(
-              "no-underline",
-              "focus:ring-4 focus:ring-solid-lavender border-none focus:outline-none"
+              "no-underline absolute flex",
+              "leading-[0.95rem] items-end justify-end",
+              "focus:ring-4 focus:ring-solid-lavender border-none focus:outline-none",
+              "h-8 w-8 relative",
+              "dark:text-zinc-900 dark:bg-white dark:hover:bg-black dark:hover:text-white",
+              "text-white bg-black hover:bg-white",
+              "hover:bg-gradient-to-br hover:from-solid-mint hover:to-solid-acai"
             )}
             onClick={(event) => {
               event.currentTarget.blur();
             }}
           >
-            <div
-              className={clsx(
-                "h-8 w-8 transition",
-                "dark:text-black dark:bg-white dark:hover:bg-black dark:hover:text-white",
-                "text-white bg-black hover:bg-white hover:text-black",
-                "hover:bg-gradient-to-br hover:from-solid-mint hover:to-solid-acai"
-              )}
-            ></div>
+            TS
           </a>
         </Link>
       </div>

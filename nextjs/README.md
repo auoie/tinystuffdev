@@ -76,6 +76,12 @@ convert face-with-monocle_1f9d0.png -define icon:auto-resize=256,64,48,32,16 fav
 The max with is set to `46rem` which is `2rem` less than `md:` size of `48rem`.
 This is so that the corners for the code blocks are removed when the window is smaller than `48rem`.
 
+## Adding a font
+
+See [this link](https://dev.to/thomasvanholder/add-a-custom-tailwind-css-fonts-to-your-website-1nn6) for adding a font.
+Basically, you need to add the import statements before the `@tailwind` CSS imports.
+Then you extend the `fontFamily` property in `tailwind.config.js`.
+
 ## Add Event Listener to Class Change
 
 - https://www.seanmcp.com/articles/event-listener-for-class-change/
