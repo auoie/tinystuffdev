@@ -92,6 +92,10 @@ Then you extend the `fontFamily` property in `tailwind.config.js`.
 
 - https://www.seanmcp.com/articles/event-listener-for-class-change/
 
+## SEO
+
+For search engine optimization, use [this package](https://github.com/garmeeh/next-seo).
+
 ## Todo
 
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).
