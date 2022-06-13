@@ -119,4 +119,4 @@ Then in cloudflare, I can just set the Browser Cache TTL value to 1 year.
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).
       Also, add a VSC Light+ Prism JS theme. According to my Lighthouse score, my light mode code color scheme doesn't have enough contrast.
       I should address this.
-- [ ] Add hashes to favicon icons so that I'll be more confident in setting a longer cache-control header which will make the lighthouse score happier.
+- [ ] Figure out how to hash the CSS file names so that it's easier for me to edit them or switch them out.
