@@ -64,6 +64,7 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
           url: "https://tinystuff.dev/",
           title: "tinystuff",
           site_name: "tinystuff",
+          type: "website",
           description:
             "These are some of my projects and notes. It's pretty empty right now.",
           images: [
