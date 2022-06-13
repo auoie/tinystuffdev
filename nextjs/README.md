@@ -100,6 +100,9 @@ For search engine optimization, use [this package](https://github.com/garmeeh/ne
 
 To do this, see [here](https://stackoverflow.com/questions/57157228/next-js-export-index-html).
 This makes it compatible with the Caddy server.
+If I choose to use the `try_files {path}.html {path}` directive, then I will
+need to either figure out how to remove the trailing slash when there exists an .html file matching the path
+with my Caddy server or I will need to update my Open Graph configuration to not use a trailing slash for my URLs.
 
 ## Todo
 
