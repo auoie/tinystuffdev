@@ -45,17 +45,14 @@ const getPostPageProps = async (slug: string) => {
   };
 };
 type Props = ResolveStaticPropsReturnType<typeof getPostPageProps>;
-export const getStaticProps: GetStaticProps<Props> = async ({
+type Params = { slug: string };
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
   if (params === undefined) {
     throw new Error("params is undefined");
   }
-  const slug = params["slug"];
-  if (slug === undefined) {
-    throw new Error("slug is undefined");
-  }
-  return await getPostPageProps(`${slug}`);
+  return await getPostPageProps(params.slug);
 };
 const PostPage: NextPage<Props> = ({
   frontMatter,
@@ -90,7 +87,7 @@ const PostPage: NextPage<Props> = ({
     </div>
   );
 };
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const paths = NOTE_FILE_PATHS.map((path) => path.replace(/\.mdx?$/, "")).map(
     (slug) => ({ params: { slug } })
   );
