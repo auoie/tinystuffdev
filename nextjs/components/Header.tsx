@@ -22,7 +22,7 @@ const Header: FC<Props> = ({ className, ...props }) => {
               "leading-[0.95rem] items-end justify-end",
               "focus:ring-4 focus:ring-solid-lavender border-none focus:outline-none",
               "h-8 w-8 relative",
-              "dark:text-zinc-900 dark:bg-white dark:hover:bg-black dark:hover:text-white",
+              "dark:text-zinc-900 dark:bg-white dark:hover:bg-black",
               "text-white bg-black hover:bg-white",
               "hover:bg-gradient-to-br hover:from-solid-mint hover:to-solid-acai"
             )}
