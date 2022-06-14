@@ -44,8 +44,8 @@ const getPostPageProps = async (slug: string) => {
     },
   };
 };
-type PostPageProps = ResolveStaticPropsReturnType<typeof getPostPageProps>;
-export const getStaticProps: GetStaticProps<PostPageProps> = async ({
+type Props = ResolveStaticPropsReturnType<typeof getPostPageProps>;
+export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }) => {
   if (params === undefined) {
@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   }
   return await getPostPageProps(`${slug}`);
 };
-const PostPage: NextPage<PostPageProps> = ({
+const PostPage: NextPage<Props> = ({
   frontMatter,
   source,
   slug,
