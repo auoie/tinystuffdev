@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }) => {
   if (params === undefined) {
-    throw new Error("params is undefined is");
+    throw new Error("params is undefined");
   }
   const slug = params["slug"];
   if (slug === undefined) {
