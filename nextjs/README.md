@@ -120,3 +120,5 @@ Then in cloudflare, I can just set the Browser Cache TTL value to 1 year.
       Also, add a VSC Light+ Prism JS theme. According to my Lighthouse score, my light mode code color scheme doesn't have enough contrast.
       I should address this.
 - [ ] Figure out how to hash the CSS file names so that it's easier for me to edit them or switch them out.
+- [ ] Make converting the markdown to html faster.
+      One possible approach would be to make some kind of markdown-to-html microservice in a faster language such as golang.
