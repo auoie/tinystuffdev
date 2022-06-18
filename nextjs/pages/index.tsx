@@ -20,7 +20,6 @@ import Header from "../components/Header";
 import rehypeExternalLinks from "rehype-external-links";
 import { NextSeo } from "next-seo";
 
-
 const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
   { rel: false };
 const getHomeProps = async () => {
@@ -38,9 +37,14 @@ const getHomeProps = async () => {
     const source = readFileSync(join(NOTES_PATH, filePath));
     const { data } = matter(source);
     const metadata = parseMetadata.parse(data);
-    const renderedDate = renderDate(new Date(metadata.created));
-    return { data: { ...metadata, created: renderedDate }, filePath };
-  });
+    const date = new Date(metadata.created);
+    const renderedDate = renderDate(date);
+    return { data: { ...metadata, created: renderedDate }, filePath, date };
+  })
+    .sort((a, b) => {
+      return b.date.valueOf() - a.date.valueOf();
+    })
+    .map(({ data, filePath }) => ({ data, filePath }));
   return {
     props: {
       source: mdxSource,
