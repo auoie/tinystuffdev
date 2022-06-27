@@ -9,3 +9,8 @@ created: { creation date }
 ```
 
 You can get the creation time in UTC format with `date -u` in linux.
+
+## TODO
+- `remarkPrism` escapes quotes and single quotes when a language is not specified or when the specified language is text.
+Figure out how to make it not do that.
+A workaround is to set the language to `markup.`
