@@ -122,7 +122,7 @@ docker run -d \
 
 The Caddyfile looks like
 
-```
+```bash
 :80 {
 	# Set this path to your site's directory.
 	root * /mnt/app
@@ -177,7 +177,7 @@ slothcroissant/caddy-cloudflaredns
 If you don't want your API token to be saved in your bash history, just [add a space](https://stackoverflow.com/questions/6475524/how-do-i-prevent-commands-from-showing-up-in-bash-history) before the command.
 A minimal version of my Caddyfile looks like this:
 
-```
+```bash
 tinystuff.dev {
 	root * /mnt/apps/tinystuffdev
 	file_server
