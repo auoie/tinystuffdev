@@ -1,10 +1,7 @@
 import { readFileSync } from "fs";
 import matter from "gray-matter";
 import type { GetStaticProps, NextPage } from "next";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
 import {
-  INDEX_MD_PATH,
   NOTES_PATH,
   NOTE_FILE_PATHS,
   parseMetadata,
@@ -12,27 +9,11 @@ import {
 } from "../utils/mdxUtils";
 import { join } from "path";
 import Link from "next/link";
-import {
-  GetRehypePluginOptions,
-  ResolveStaticPropsReturnType,
-} from "../utils/typeUtils";
+import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
 import Header from "../components/Header";
-import rehypeExternalLinks from "rehype-external-links";
 import { NextSeo } from "next-seo";
 
-const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
-  { rel: false };
 const getHomeProps = async () => {
-  const source = readFileSync(INDEX_MD_PATH);
-  const { content, data } = matter(source);
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [[rehypeExternalLinks, externalLinksOptions]],
-    },
-    scope: data,
-  });
-
   const posts = NOTE_FILE_PATHS.map((filePath) => {
     const source = readFileSync(join(NOTES_PATH, filePath));
     const { data } = matter(source);
@@ -47,7 +28,6 @@ const getHomeProps = async () => {
     .map(({ data, filePath }) => ({ data, filePath }));
   return {
     props: {
-      source: mdxSource,
       posts,
     },
   };
@@ -58,7 +38,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return await getHomeProps();
 };
 
-const Home: NextPage<HomeProps> = ({ source, posts }) => {
+const Home: NextPage<HomeProps> = ({ posts }) => {
   return (
     <div className="mx-4 my-12">
       <NextSeo
@@ -76,7 +56,6 @@ const Home: NextPage<HomeProps> = ({ source, posts }) => {
       <div className="mx-auto max-w-[38rem]">
         <Header className="mb-10" />
         <div className="max-w-full prose-sm prose prose-blue dark:prose-invert">
-          <MDXRemote {...source}></MDXRemote>
           <h2>Notes</h2>
           {posts.map((post) => (
             <div
