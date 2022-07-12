@@ -20,6 +20,18 @@ class MyDocument extends Document {
             // Using this so that if JavaScript is disabled, code still has the correct colors
             // eslint-disable-next-line @next/next/no-css-tags
           }<link rel="stylesheet" href="/prism-vs.css" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500;1,500&display=swap"
+            rel="stylesheet"
+          />
           <script
             dangerouslySetInnerHTML={{
               __html: `
