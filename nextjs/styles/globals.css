@@ -15,6 +15,6 @@ code[class*="language-"],
 pre[class*="language-"],
 pre[class*="language-"] *,
 code[class*="language-"] * {
-  @apply text-xs not-italic font-mono !important;
+  @apply leading-[1.1rem] text-[0.80rem] not-italic font-mono !important;
 }
 @tailwind utilities;
