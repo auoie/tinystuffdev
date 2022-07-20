@@ -10,7 +10,6 @@ import {
 import { join } from "path";
 import Link from "next/link";
 import { ResolveStaticPropsReturnType } from "../utils/typeUtils";
-import Header from "../components/Header";
 import { NextSeo } from "next-seo";
 
 const getHomeProps = async () => {
@@ -40,7 +39,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
 const Home: NextPage<HomeProps> = ({ posts }) => {
   return (
-    <div className="mx-4 my-12">
+    <>
       <NextSeo
         title="Tiny Stuff"
         description="These are some of my projects and notes. It's pretty empty right now."
@@ -53,30 +52,27 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
             "These are some of my projects and notes. It's pretty empty right now.",
         }}
       />
-      <div className="mx-auto max-w-[38rem]">
-        <Header className="mb-10" />
-        <div className="max-w-full prose-sm prose prose-blue dark:prose-invert">
-          <h2>Notes</h2>
-          {posts.map((post) => (
-            <div
-              className="mt-2 sm:flex sm:flex-row-reverse sm:items-baseline sm:justify-between"
-              key={post.filePath}
-            >
-              <div className="text-sm whitespace-nowrap opacity-80">
-                {post.data.created}
-              </div>
-              <Link
-                as={`/${post.filePath.replace(/\.mdx?$/, "")}`}
-                href={"/[slug]/"}
-                prefetch={false}
-              >
-                <a>{post.data.title}</a>
-              </Link>
+      <div className="max-w-full prose-sm prose prose-blue dark:prose-invert">
+        <h2>Notes</h2>
+        {posts.map((post) => (
+          <div
+            className="mt-2 sm:flex sm:flex-row-reverse sm:items-baseline sm:justify-between"
+            key={post.filePath}
+          >
+            <div className="text-sm whitespace-nowrap opacity-80">
+              {post.data.created}
             </div>
-          ))}
-        </div>
+            <Link
+              as={`/${post.filePath.replace(/\.mdx?$/, "")}`}
+              href={"/[slug]/"}
+              prefetch={false}
+            >
+              <a>{post.data.title}</a>
+            </Link>
+          </div>
+        ))}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -18,7 +18,7 @@ const Header: FC<Props> = ({ className, ...props }) => {
           <a
             aria-label="Home"
             className={clsx(
-              "no-underline absolute flex",
+              "no-underline absolute flex select-none",
               "leading-[0.95rem] items-end justify-end",
               "focus:ring-4 dark:focus:ring-zinc-200 focus:ring-zinc-800 border-none focus:outline-none",
               "h-8 w-8 relative",
@@ -35,7 +35,9 @@ const Header: FC<Props> = ({ className, ...props }) => {
           </a>
         </Link>
       </div>
-      <ThemeSwitch />
+      <div className="z-50 flex items-center justify-center">
+        <ThemeSwitch className="w-[93.5156px]" />
+      </div>
     </div>
   );
 };

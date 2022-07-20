@@ -10,7 +10,6 @@ import {
   renderDate,
 } from "../../utils/mdxUtils";
 import { ResolveStaticPropsReturnType } from "../../utils/typeUtils";
-import Header from "../../components/Header";
 import { NextSeo } from "next-seo";
 import rehypePrettyCode from "rehype-pretty-code";
 import type { Options } from "rehype-pretty-code";
@@ -61,7 +60,7 @@ const PostPage: NextPage<Props> = ({
 }) => {
   const { title, created } = frontMatter;
   return (
-    <div className="mx-4 my-12">
+    <>
       <NextSeo
         title={title}
         description={description}
@@ -73,15 +72,12 @@ const PostPage: NextPage<Props> = ({
           type: "article",
         }}
       />
-      <div className="mx-auto max-w-[38rem] ">
-        <Header />
-        <div className="max-w-full prose-sm prose prose-blue dark:prose-invert mt-10">
-          <h1 className="mb-2">{title}</h1>
-          <div className="opacity-80 mb-10">{created}</div>
-          <MDXTheme {...source} />
-        </div>
+      <div className="max-w-full prose-sm prose prose-blue dark:prose-invert">
+        <h1 className="mb-2">{title}</h1>
+        <div className="opacity-80 mb-10">{created}</div>
+        <MDXTheme {...source} />
       </div>
-    </div>
+    </>
   );
 };
 export const getStaticPaths: GetStaticPaths<Params> = async () => {

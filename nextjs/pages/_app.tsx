@@ -2,9 +2,10 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import favicon from "../assets/favicon.ico";
-import openGraphImage from '../assets/favicon-200.png'
+import openGraphImage from "../assets/favicon-200.png";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
+import Header from "../components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -26,7 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="icon" href={favicon} type="image/x-icon" />
       </Head>
-      <Component {...pageProps} />
+      <div className="mx-4 my-12">
+        <div className="mx-auto max-w-[38rem] ">
+          <Header className="mb-10" />
+          <Component {...pageProps} />
+        </div>
+      </div>
     </ThemeProvider>
   );
 }

@@ -1,9 +1,11 @@
 @tailwind base;
 @tailwind components;
 
-/* Keep scroll always */
 :root {
   overflow-y: scroll;
+}
+*::selection {
+  @apply bg-zinc-600 bg-opacity-20 dark:bg-zinc-400 dark:bg-opacity-20;
 }
 
 /* Prose settings */
