@@ -1,20 +1,68 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap");
 @tailwind base;
 @tailwind components;
+
+/* Keep scroll always */
 :root {
   overflow-y: scroll;
 }
-pre[class*="language-"] {
-  @apply rounded-none !important;
-  @apply bg-zinc-100 dark:bg-zinc-950 !important;
-  @apply border-none;
-  padding: 1rem !important;
-  margin: 0.5em -1rem !important;
+
+/* Prose settings */
+.prose {
+  * {
+    @apply break-words;
+  }
+  a {
+    @apply font-normal text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-500 hover:text-zinc-400  transition duration-300;
+  }
+  :not(pre) > code {
+    &:before,
+    &:after {
+      content: none;
+    }
+    @apply bg-black bg-opacity-5 border-none font-medium text-[0.95em] rounded-md px-1 py-[0.11rem];
+    .dark & {
+      @apply bg-white bg-opacity-10;
+    }
+  }
+  pre {
+    @apply rounded-none;
+    @apply bg-zinc-100 dark:bg-zinc-950 text-current;
+    @apply border-none;
+    @apply p-4 my-2;
+    @apply -mx-4 md:-mx-16 lg:-mx-40;
+    code {
+      @apply p-0 m-0 border-none inline-block leading-[1.2rem] text-[0.80rem] font-mono !important;
+    }
+  }
 }
-code[class*="language-"],
-pre[class*="language-"],
-pre[class*="language-"] *,
-code[class*="language-"] * {
-  @apply leading-[1.1rem] text-[0.80rem] not-italic font-mono !important;
+
+/* Shiki colors for pre code blocks */
+:root {
+  --shiki-color-text: #414141;
+  --shiki-color-background: transparent;
+  --shiki-token-constant: #1976d2;
+  --shiki-token-string: #22863a;
+  --shiki-token-comment: #999;
+  --shiki-token-keyword: #d32f2f;
+  --shiki-token-parameter: #ff9800;
+  --shiki-token-function: #6f42c1;
+  --shiki-token-string-expression: #22863a;
+  --shiki-token-punctuation: #212121;
+  --shiki-token-link: #22863a;
+  --nextra-shiki-deleted: #f00;
+  --nextra-shiki-inserted: #f00;
 }
+.dark {
+  --shiki-color-text: #d1d1d1;
+  --shiki-token-constant: #79b8ff;
+  --shiki-token-string: #ffab70;
+  --shiki-token-comment: #6b737c;
+  --shiki-token-keyword: #f97583;
+  --shiki-token-parameter: #ff9800;
+  --shiki-token-function: #b392f0;
+  --shiki-token-string-expression: #4bb74a;
+  --shiki-token-punctuation: #bbbbbb;
+  --shiki-token-link: #ffab70;
+}
+
 @tailwind utilities;

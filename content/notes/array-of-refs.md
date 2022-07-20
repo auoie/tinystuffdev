@@ -29,7 +29,7 @@ const Ids: FC = () => {
 };
 ```
 
-Apparently, this is equivalent[^1] to:
+Apparently, this is [equivalent to](https://twitter.com/dan_abramov/status/1099842565631819776):
 
 ```tsx
 type RefsType = {
@@ -57,4 +57,6 @@ const Ids: FC = () => {
 };
 ```
 
-[^1]: See [Dan Abramov's twitter](https://twitter.com/dan_abramov/status/1099842565631819776?lang=en).
+## References
+
+- [https://twitter.com/dan_abramov/status/1099842565631819776](https://twitter.com/dan_abramov/status/1099842565631819776)

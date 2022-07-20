@@ -114,6 +114,10 @@ It did not work out of the box.
 use the parameter `disableStaticImages: true` and to use `src={StaticImage}` rather than `src={StaticImage.src}`.
 Then in cloudflare, I can just set the Browser Cache TTL value to 1 year.
 
+## Appearance
+
+For styling the website, refer to [https://shud.in/](https://shud.in/).
+
 ## Todo
 
 - [ ] Fix the font size in the VSC Dark+ Prism JS theme from [the repo](https://github.com/PrismJS/prism-themes/tree/master/themes).

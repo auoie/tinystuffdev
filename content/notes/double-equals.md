@@ -6,7 +6,7 @@ description: The  double equals (`==`) operator in JavaScript is not transitive.
   Always use `===`.
 ---
 
-In JavaScript, the `==` operator is not transitive.[^1]
+In JavaScript, the `==` operator is [not transitive](https://stackoverflow.com/q/5447153).
 Open a Node.js REPL with `node`.
 My version of node is
 
@@ -22,7 +22,7 @@ Then we can evaluate the following:
 0 == "0"; // true
 ```
 
-Apparently, in IE10 on Windows 8 with "Browser Mode: IE8" enabled, `==` is not symmetric.[^2]
+Apparently, in IE10 on Windows 8 with "Browser Mode: IE8" enabled, `==` is [not symmetric](https://stackoverflow.com/q/5669440).
 I haven't tested this, but if we were to open the browser tools I guess we would see the following:
 
 ```js
@@ -34,5 +34,7 @@ According to the ECMA-262 spec, `==` is symmetric.
 I'm guessing the spec wasn't around when IE10 was created.
 Always use `===`.
 
-[^1]: https://stackoverflow.com/questions/5447153/javascript-equality-transitivity-is-weird
-[^2]: https://stackoverflow.com/questions/5669440/is-javascripts-double-equals-always-symmetric
+## References
+
+- [https://stackoverflow.com/q/5447153](https://stackoverflow.com/q/5447153)
+- [https://stackoverflow.com/q/5669440](https://stackoverflow.com/q/5669440)

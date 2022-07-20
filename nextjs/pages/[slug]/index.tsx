@@ -1,7 +1,6 @@
 import { readFileSync } from "fs";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { join } from "path";
 import {
@@ -10,26 +9,26 @@ import {
   parseMetadata,
   renderDate,
 } from "../../utils/mdxUtils";
-import {
-  GetRehypePluginOptions,
-  ResolveStaticPropsReturnType,
-} from "../../utils/typeUtils";
-import remarkPrism from "remark-prism";
-import remarkGfm from "remark-gfm";
+import { ResolveStaticPropsReturnType } from "../../utils/typeUtils";
 import Header from "../../components/Header";
-import rehypeExternalLinks from "rehype-external-links";
 import { NextSeo } from "next-seo";
+import rehypePrettyCode from "rehype-pretty-code";
+import type { Options } from "rehype-pretty-code";
+import { MDXTheme } from "../../components/MdxTheme";
 
-const externalLinksOptions: GetRehypePluginOptions<typeof rehypeExternalLinks> =
-  { rel: false };
 const getPostPageProps = async (slug: string) => {
   const postFilePath = join(NOTES_PATH, `${slug}.md`);
   const source = readFileSync(postFilePath);
   const { content, data } = matter(source);
+  const rehypePrettyCodeOptions: Partial<Options> = {
+    theme: {
+      theme: "css-variables",
+    },
+  };
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkGfm, remarkPrism],
-      rehypePlugins: [[rehypeExternalLinks, externalLinksOptions]],
+      remarkPlugins: [],
+      rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
     },
     scope: data,
   });
@@ -76,12 +75,10 @@ const PostPage: NextPage<Props> = ({
       />
       <div className="mx-auto max-w-[38rem] ">
         <Header />
-        <div className="max-w-full prose-sm prose break-words prose-blue dark:prose-invert">
-          <div className="my-10">
-            <h1 className="my-2">{title}</h1>
-            <div className="opacity-80">{created}</div>
-          </div>
-          <MDXRemote {...source}></MDXRemote>
+        <div className="max-w-full prose-sm prose prose-blue dark:prose-invert mt-10">
+          <h1 className="mb-2">{title}</h1>
+          <div className="opacity-80 mb-10">{created}</div>
+          <MDXTheme {...source} />
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ description: We try to run Rocket League on Arch Linux. It's probably not worth 
 BakkesMod isn't working anymore. When I run `WINEESYNC=1 protontricks -c 'wine c:/Program\ Files/BakkesMod/BakkesMod.exe' 252950`,
 I get the error
 
-```markup
+```text
 /home/arch/.cache/protontricks/proton/Proton-GE/bin/wine: line 155: /home/arch/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier/pressure-vessel/bin/pressure-vessel-launch: No such file or directory
 ```
 
@@ -52,7 +52,7 @@ vim ~/.local/share/applications/BakkesMod.desktop
 The desktop file should contain the following.
 If the kernel is newer than 5.16, change `WINEESYNC` to `WINEFSYNC`.
 
-```markup
+```text
 [Desktop Entry]
 Name=BakkesMod
 Exec=env WINEESYNC=1 protontricks -c 'wine c:/Program\ Files/BakkesMod/BakkesMod.exe' 252950
@@ -75,7 +75,7 @@ protontricks -c 'wine ~/Downloads/Rocket\ League\ Tracker\ -\ Installer.exe' 252
 
 From installing `proton-ge-custom-bin`, I got the message
 
-```markup
+```text
 The wine executable used by proton can automatically set the niceness of a process;
 Consider adding yourself to the games group to make this work by issuing: usermod -a -G games
 ```
@@ -128,7 +128,7 @@ jscal -s 8,1,0,127,128,4227201,4227201,1,0,127,128,4227201,4227201,0,0,1,0,127,1
 
 The `udev` rule should be
 
-```markup
+```text
 SUBSYSTEM=="input", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", ACTION=="add", RUN+="/usr/bin/bash /usr/bin/jscal.sh"
 ```
 

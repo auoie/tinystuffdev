@@ -59,7 +59,7 @@ python3 -m pgcli postgresql://postgres:password@172.17.0.3:5432
 See [this post](https://news.ycombinator.com/item?id=27615346) for suggestions on how to setup a secure database.
 Basically, setup a VPC and limit external connections.
 
-For convience, I'm going to enable LAN access.
+For convenience, I'm going to enable LAN access.
 Be wary of the fact that if you're using a public wifi connection, your ports will be exposed.
 
 ```bash
@@ -80,7 +80,7 @@ So a CIDR block with a prefix length of `y` has `2^(32 - y)` addresses.
 ## Setting Up Rootless Docker
 
 Typically, docker is run as root.
-For convenience , you might be tempted to setup docker so that you don't need to use `sudo` to run it.
+For convenience, you might be tempted to setup docker so that you don't need to use `sudo` to run it.
 This is equivalent to giving users root permissions.
 Alternatively, setup [rootless docker](https://docs.docker.com/engine/security/rootless/).
 Then you'll be able to run docker without needing to use `sudo` and without giving a user root permissions.
@@ -122,7 +122,7 @@ docker run -d \
 
 The Caddyfile looks like
 
-```markup
+```text
 :80 {
 	# Set this path to your site's directory.
 	root * /mnt/app
@@ -143,7 +143,7 @@ The Caddyfile looks like
 At the moment, I'm serving this website on a Digital Ocean droplet using a Caddy container as my file server.
 For my DNS management, I'm using Cloudflare.
 I'm using wildcard records for my names.
-In order to make that work, I need to use the Caddy module https://github.com/caddy-dns/cloudflare.
+In order to make that work, I need to use the Caddy module [https://github.com/caddy-dns/cloudflare](https://github.com/caddy-dns/cloudflare).
 
 If you want, you can make a docker image with the following Dockerfile:
 
@@ -155,7 +155,7 @@ FROM caddy:2.5.1
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 ```
 
-I'm just using an image that someone else made: https://hub.docker.com/r/slothcroissant/caddy-cloudflaredns.
+I'm just using an image that someone else made: [https://hub.docker.com/r/slothcroissant/caddy-cloudflaredns](https://hub.docker.com/r/slothcroissant/caddy-cloudflaredns).
 
 ```bash
 # This creates a network that gives the caddy droplet access to other containers on the network
@@ -177,7 +177,7 @@ slothcroissant/caddy-cloudflaredns
 If you don't want your API token to be saved in your bash history, just [add a space](https://stackoverflow.com/questions/6475524/how-do-i-prevent-commands-from-showing-up-in-bash-history) before the command.
 A minimal version of my Caddyfile looks like this:
 
-```markup
+```text
 tinystuff.dev {
 	root * /mnt/apps/tinystuffdev
 	file_server

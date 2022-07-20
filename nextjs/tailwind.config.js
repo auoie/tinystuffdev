@@ -37,18 +37,6 @@ module.exports = {
           acai: "rgba(198,28,255,1)",
         },
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            a: {
-              "text-decoration": "none",
-              "&:hover": {
-                "text-decoration": "underline",
-              },
-            },
-          },
-        },
-      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
