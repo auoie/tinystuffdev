@@ -60,7 +60,7 @@ See [this post](https://news.ycombinator.com/item?id=27615346) for suggestions o
 Basically, setup a VPC and limit external connections.
 
 For convenience, I'm going to enable LAN access.
-Be wary of the fact that if you're using a public wifi connection, your ports will be exposed.
+Be wary of the fact that if you're using a public Wi-Fi connection, your ports will be exposed.
 
 ```bash
 sudo ufw allow from 192.168.4.0/24 # allow LAN access
@@ -68,9 +68,9 @@ sudo ufw allow from 192.168.4.0/24 # allow LAN access
 
 ## CIDR
 
-Note that CIDR (classless inter-domain routing) is just notation for specificying a range of IP addresses.
+Note that CIDR (classless inter-domain routing) is just notation for specifying a range of IP addresses.
 See [this helpful visualization](https://news.ycombinator.com/item?id=10730756).
-The range CIDR x1.x2.x3.x4/y must satisfy `0 <= x1, x2, x3, x4 <= 255` with `0 <= y <= 32`.
+The CIDR range `x1.x2.x3.x4/y` must satisfy `0 <= x1, x2, x3, x4 <= 255` with `0 <= y <= 32`.
 The value `y` is the number of fixed bits from the left.
 This is the prefix length.
 For example, `172.16.0.0/12` is the range `172.16.0.0` to `172.31.255.255`.
@@ -200,5 +200,5 @@ tinystuff.dev {
 
 I used to have the line `try_files {path}.html {path}`
 within my `tinystuff.dev` file server block as shown [here](https://caddyserver.com/docs/v2-upgrade#ext),
-but that messed with OpenGraph fetching my webpages.
+but that messed with OpenGraph fetching my web pages.
 Thus, I'm just going to keep the defaults.

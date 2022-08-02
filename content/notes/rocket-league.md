@@ -19,7 +19,7 @@ It doesn't work for me.
 ## Installing Rocket League
 
 I would like to play online Rocket League.
-Basically just follow this [reddit post](https://www.reddit.com/r/bakkesmod/comments/s0njrh/how_to_bakkesmod_on_linux_steam_and_epic_games/).
+Basically just follow this [Reddit post](https://www.reddit.com/r/bakkesmod/comments/s0njrh/how_to_bakkesmod_on_linux_steam_and_epic_games/).
 It also shows how to use BakkesMod.
 
 ```bash
@@ -28,8 +28,8 @@ paru -S proton-ge-custom-bin
 ```
 
 Then open Steam.
-Under Rocket League > Properties > Compatability,
-check the box saying `Force the use of a specific Steam Play compatability tool`,
+Under Rocket League > Properties > Compatibility,
+check the box saying `Force the use of a specific Steam Play compatibility tool`,
 as described in the [proton-ge-custom installation instructions](https://github.com/GloriousEggroll/proton-ge-custom#enabling).
 Then open Rocket League to see if it works.
 If there is a lot of CPU usage and it's says that it's processing Vulkan shaders,
@@ -87,7 +87,7 @@ sudo usermod -a -G games $USER
 groups $USER # to verify that the command worked
 ```
 
-Somtimes Rocket League would crash randomly. Hopefully this solves that issue.
+Sometimes Rocket League would crash randomly. Hopefully this solves that issue.
 
 ## Configuring the Controller
 
@@ -102,11 +102,11 @@ On Linux, the axis values just stayed at 0 when I wasn't touching the joysticks.
 - [Controller configuration](https://www.reddit.com/r/RocketLeague/comments/9az1p5/have_you_ever_enabled_xboxps4_configuration/). Discussion of how to reset steam controller settings.
 - [Cross vs Square](https://www.reddit.com/r/RocketLeague/comments/bvvi03/how_to_check_if_i_have_a_square_or_cross_deadzone/). How to see deadzone shape.
 
-Note that the [polling rate](https://www.youtube.com/watch?v=x0wcJM4FtXQ) for the DS4 controller over a wire is 250 Hz and over bluetooth is 1000 Hz.
+Note that the [polling rate](https://www.youtube.com/watch?v=x0wcJM4FtXQ) for the DS4 controller over a wire is 250 Hz and over Bluetooth is 1000 Hz.
 There is software to overclock it, but I don't feel like installing it.
 
 Let's configure my DS4 [controller deadzones](https://wiki.archlinux.org/title/Gamepad#Joystick_API_deadzones).
-If you use bluetooth, then you can check the charge according to the [Gentoo Wiki](https://wiki.gentoo.org/wiki/Sony_DualShock#Battery_charge_level).
+If you use Bluetooth, then you can check the charge according to the [Gentoo Wiki](https://wiki.gentoo.org/wiki/Sony_DualShock#Battery_charge_level).
 But I'm using a USB cable.
 
 ```bash
@@ -138,7 +138,7 @@ Note that `js0` can could contain a different number instead of `0`.
 Now, whenever I plug in my controller via USB, it feels like how it feels in Windows.
 To check the numbers, you can go to [gamepad-tester](https://gamepad-tester.com/).
 
-The Arch Linux wiki claims that you can change the [pollng rate](https://wiki.archlinux.org/title/mouse_polling_rate) of devices,
+The Arch Linux wiki claims that you can change the [polling rate](https://wiki.archlinux.org/title/mouse_polling_rate) of devices,
 but it didn't work for me.
 This [Reddit post](https://wiki.archlinux.org/title/mouse_polling_rate)
 says that the method only works for older devices.

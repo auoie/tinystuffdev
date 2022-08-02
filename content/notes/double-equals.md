@@ -30,8 +30,8 @@ window == document; // true
 document == window; // false
 ```
 
-According to the ECMA-262 spec, `==` is symmetric.
-I'm guessing the spec wasn't around when IE10 was created.
+According to the ECMA-262 specification, `==` is symmetric.
+I'm guessing the specification wasn't around when IE10 was created.
 Always use `===`.
 
 ## References
